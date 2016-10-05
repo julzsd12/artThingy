@@ -19,7 +19,7 @@ var routes = {
 		var keys = Object.keys(data);
 		var text = "Data:\n";
 		text += keys.map(function(key) {
-			return key + ", " + data[key];
+			return key + ", " + data[key] + "\n";
 		});
 		this.body = text;
 	}
@@ -30,4 +30,6 @@ app.use(route.get('/', routes.index));
 app.use(route.post('/save/:key/:value', routes.save));
 app.use(route.get('/list', routes.list));
 
-app.listen(3000);
+
+const port = process.env.PORT || 3000;
+app.listen(port);
